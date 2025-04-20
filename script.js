@@ -16,7 +16,7 @@ function createBall1() {
 
   ball1 = document.createElement("div");
   ball1.className = "ball";
-  ball1.style.width = ball1.style.height = `${r1 * 2}px`;
+ball1.style.width = ball1.style.height = `${r1 * 2}px`;
   ball1.style.background = "blue";
   ball1.style.left = "50px";
   ball1.style.top = "200px";
@@ -60,30 +60,25 @@ function animate() {
   y2 += vy2;
 
   ball1.style.left = `${x1}px`;
-  ball1.style.top = `${y1}px`;
-  ball2.style.left = `${x2}px`;
+ball1.style.top = `${y1}px`;
+ball2.style.left = `${x2}px`;
   ball2.style.top = `${y2}px`;
-
-  // Wall collisions
   const boxWidth = 700, boxHeight = 500;
   if (x1 <= 0 || x1 + r1 * 2 >= boxWidth) vx1 = -vx1;
   if (y1 <= 0 || y1 + r1 * 2 >= boxHeight) vy1 = -vy1;
   if (x2 <= 0 || x2 + r2 * 2 >= boxWidth) vx2 = -vx2;
   if (y2 <= 0 || y2 + r2 * 2 >= boxHeight) vy2 = -vy2;
 
-  // Ball-ball collision
   const dx = x2 - x1;
   const dy = y2 - y1;
   const dist = Math.sqrt(dx * dx + dy * dy);
   if (dist <= r1 + r2) {
-    // Normal vector
-    const nx = dx / dist;
+
+     const nx = dx / dist;
     const ny = dy / dist;
     const p = (2 * (vx1 * nx + vy1 * ny - vx2 * nx - vy2 * ny)) / (m1 + m2);
-
-    // New velocities after collision
     vx1 = vx1 - p * m2 * nx * e;
-    vy1 = vy1 - p * m2 * ny * e;
+   vy1 = vy1 - p * m2 * ny * e;
     vx2 = vx2 + p * m1 * nx * e;
     vy2 = vy2 + p * m1 * ny * e;
   }
