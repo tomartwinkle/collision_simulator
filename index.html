@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ball Collision Simulation</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<div>
+  <h3>Ball 1</h3>
+  <div class="inputCont">
+  Radius: <input type="number" id="r1" placeholder="Radius"> 
+  Mass: <input type="number" id="m1" placeholder="Mass">
+  Vx: <input type="number" id="vx1" placeholder="Horizontal velocity"> 
+  Vy: <input type="number" id="vy1" placeholder="Vertical velocity"> 
+  <button onclick="createBall1()">Create Ball 1</button>
+  </div>
+</div>
+
+<div>
+  <h3>Ball 2</h3>
+  <div class="inputCont">
+  Radius: <input type="number" id="r2" placeholder="Radius"> 
+  Mass: <input type="number" id="m2" placeholder="Mass">
+  Vx: <input type="number" id="vx2" placeholder="Horizontal velocity"> 
+  Vy: <input type="number" id="vy2" placeholder="Vertical velocity"> 
+  <button onclick="createBall2()">Create Ball 2</button>
+  </div>
+</div>
+
+<div class="inputCont" style="margin-top: 30px;">
+  Coefficient of Restitution (e): <input type="number" id="e" placeholder="0-1" step="0.1">
+  <button onclick="startSimulation()">Collide</button>
+</div>
+<div style="display: flex; justify-content: center;margin-top: 50px;">
+<div id="box-wrapper" ></div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
